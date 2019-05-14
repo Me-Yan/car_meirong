@@ -1,0 +1,124 @@
+<!--
+td {
+	font-size: 9pt;	line-height:150%;
+} 
+a:hover {
+	font-size: 9pt;	color: #FFC000;
+}
+a {
+	font-size: 9pt;
+    text-decoration: none;
+    color: #000000;
+	border: #000 1px;
+	outline-color:#000000;
+}
+image{
+ border-color:#000000;
+}
+.btn_grey {
+	font-family: "Times New Roman",Georgia,Serif;	font-size: 9pt;color: #333333;	
+	background-color: #eeeeee;cursor: hand;padding:1px;height:19px;
+	border-top: 1px solid #FFFFFF;border-right:1px solid #666666;
+	border-bottom: 1px solid #666666;border-left: 1px solid #FFFFFF;
+}
+.txt_grey {
+	font-family: "Times New Roman",Georgia,Serif;
+	font-size: 9pt;
+	color: #EEEEEE;
+	width:150px;
+	background-color:#525C87;
+	/*Filter: Alpha(Opacity=1);*/
+}
+.word{
+	color:#BABECF;
+}
+input {
+	font-family: "Times New Roman",Georgia,Serif;
+	font-size: 9pt;
+	color: #333333;
+	border: 1px solid #999999;
+}
+body {
+    padding: 0px;
+    margin: 0px;
+}
+.wenbenkuang {
+	font-family: "Times New Roman",Georgia,Serif;
+	font-size: 9pt;
+	color: #333333;
+	border: 1px solid #999999;
+}
+.search  { font-family: "Times New Roman",Georgia,Serif; font-size: 9pt; color: #000000; background-color: #EEEEEE;
+           border: 1px Hidden #000000; }
+.tableBorder {
+	border: #DFE1EB 1px solid
+}
+.tableBorder_B {
+	border: #DFE1EB 1px solid;
+	border-left-style:none;
+	border-right-style:none;
+	border-Top-style:none;
+}
+.tableBorder_LRT {
+	border: #7A84AF 1px solid;
+	border-Bottom-style:none;
+	border-Top-style:none;
+	border-Left-style:none;
+}
+.bg_gradual{
+filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr='#DFE1EB', endColorStr='#FFFFFF', gradientType=0)
+}
+-->
+
+/* custom define */
+table.outer {
+    width: 800px;
+    height: 478px;
+    border: none;
+    background: url("../pic/r.jpg") no-repeat;
+}
+table td {
+    padding-bottom: 5px;
+}
+.text-name {
+    width: 300px;
+    text-align: right;
+    height: 25px;
+    font-size: 16px;
+}
+.text-input {
+    width: 200px;
+    height: 25px;
+    padding: 0 5px;
+    border-radius: 5px;
+}
+.text-input:focus {
+    outline: 0;
+    border-color: #017257;
+}
+textarea.text-input {
+    resize: none;
+    height: 100px;
+}
+
+.btn {
+    width: 50px;
+    margin: 0px 5px;
+    padding: 4px 0px;
+    border-radius: 5px;
+    color: white;
+    background: #698FCB;
+    border: none;
+    outline: none !important;
+    cursor: pointer;
+    text-align: center;
+}
+.btn:focus,
+.btn:hover,
+.btn:active {
+    color: white;
+    background: #5C7DB2;
+}
+a.btn {
+    display: inline-block;
+}
