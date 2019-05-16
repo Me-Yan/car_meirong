@@ -18,6 +18,18 @@
         if(form1.c_name.value==""){
             alert("请输入产品名称！");form1.c_name.focus();return false;
         }
+        //判断汽车入库
+        if(form1.ruku.value==""){
+            alert("请输入汽车入库！");form1.ruku.focus();return false;
+        }
+        //判断所需费用
+        if(form1.feiyong.value==""){
+            alert("请输入所需费用！");form1.feiyong.focus();return false;
+        }
+        //判断备注是否为空
+        if(form1.beizhu.value==""){
+            alert("请输入备注！");form1.beizhu.focus();return false;
+        }
 
     }
 </script>

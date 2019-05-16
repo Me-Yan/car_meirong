@@ -65,7 +65,7 @@
                     <td align="center"><%=rs.getString("c_name")%></td>
                     <td align="center"><%=rs.getString("feiyong")%></td>
                     <td align="center"><%=rs.getString("state")%></td>
-                    <td align="center"><a style="width: 70px" class="btn" href="jiesuan.jsp?id=<%=rs.getString("id")%>">结算费用</a></td>
+                    <td align="center"><a style="width: 70px" class="btn" href="jiesuan.jsp?id=<%=rs.getString("id")%>&&feiyong=<%=rs.getString("feiyong")%>&&k_name=<%=rs.getString("k_name")%>">结算费用</a></td>
                 </tr>
                 <%
                                     rs.next();

@@ -18,8 +18,8 @@
                 <table width="100%" border="0" cellpadding="0" cellspacing="0" >
                     <tr>
                         <td colspan="6">
-                            请输入产品编号
-                            <input name="id" class="text-input" type="text" size="16" >
+                            请输入产品名称
+                            <input name="c_name" class="text-input" type="text" size="16" >
                             <input type="submit" class="btn" name="Submit" value="查询" >
                         </td>
                     </tr>
@@ -51,10 +51,10 @@
                             try
                             {
                                 String sql;
-                                String id=request.getParameter("id");
-                                if (id!= null && !id.equals(""))
+                                String c_name=request.getParameter("c_name");
+                                if (c_name!= null && !c_name.equals(""))
                                 {
-                                    sql = "Select * from t_chanpin where id='"+id+"'";
+                                    sql = "Select * from t_chanpin where c_name Like '%"+c_name+"%'";
                                 }
                                 else
                                 {
