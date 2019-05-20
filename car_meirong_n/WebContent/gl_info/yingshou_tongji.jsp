@@ -7,13 +7,15 @@
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Insert title here</title>
     <link href="../style/style.css" rel="stylesheet" type="text/css">
+    <script src="${pageContext.request.contextPath}/script/jquery-3.2.0.min.js"></script>
+    <script src="${pageContext.request.contextPath}/script/echarts.js"></script>
 </head>
 <body>
 <table class="outer">
     <tr>
         <td width="100%" valign="top">
             <br><br>
-            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <%--<table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr>
                     <td width="125" height="30" align="center" bgcolor="#999999">¿Í»§Ãû³Æ</td>
                     <td width="109" align="center" bgcolor="#999999">Ïû·Ñ½ð¶î</td>
@@ -38,8 +40,77 @@
                     %>     <%=i%></td>
                 </tr>
                 <%}}catch (Exception e){}%>
-            </table></td>
+            </table>--%>
+
+            <div id="chart" style="height: 450px;"></div>
+
+
+
+        </td>
     </tr>
 </table>
+
+<script type="application/javascript">
+    $(function () {
+        initChart();
+    });
+
+    var chart = echarts.init(document.getElementById('chart'));
+
+    function initChart() {
+
+        var dataJson = <%=zwcl.generateEchart()%>;
+
+        var chartOptions = {
+            title: {
+                text: "½ü30ÌìÏû·ÑÍ³¼Æ"
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            grid: {
+                left: '3%',
+                right: '5%',
+                bottom: '3%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: dataJson.date
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+                {
+                    name:'½ð¶î',
+                    type:'line',
+                    stack: '×ÜÁ¿',
+                    data:dataJson.amount
+//                    markPoint: {
+//                        symbol: 'circle',
+//                        data : [
+//                            {type : 'max', name: '×î´óÖµ'},
+//                            {type : 'min', name: '×îÐ¡Öµ'}
+//                        ]
+//                    }
+                }
+            ],
+            noDataLoadingOption: {},
+        };
+        chart.showLoading();
+        setTimeout(function () {
+            chart.hideLoading();
+            chart.setOption(chartOptions);
+        }, 500);
+    }
+</script>
+
 </body>
 </html>
