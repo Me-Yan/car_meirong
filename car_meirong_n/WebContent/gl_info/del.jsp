@@ -85,6 +85,18 @@
         delete.executeUpdate(sqlo);
         out.println("<script lanage='javascript'>alert('删除成功！！');window.location.href='car_list.jsp';</script>");
     }
+    if (pp==12) {
+        String id=request.getParameter("id");
+        String sqlo="delete from baoxian where id='"+id+"'";
+        delete.executeUpdate(sqlo);
+        out.println("<script lanage='javascript'>alert('删除成功！！');window.location.href='bx_list.jsp';</script>");
+    }
+    if (pp==13) {
+        String id=request.getParameter("id");
+        String sqlo="delete from car where id='"+id+"'";
+        delete.executeUpdate(sqlo);
+        out.println("<script lanage='javascript'>alert('删除成功！！');window.location.href='car_list.jsp';</script>");
+    }
 %>
 </body>
 </html>

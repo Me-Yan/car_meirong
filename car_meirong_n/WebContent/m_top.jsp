@@ -27,25 +27,30 @@
 
 %>
 
-<table width="1800" height="92" border="0" cellpadding="0" cellspacing="0">
-    <tr>
-        <td valign="top"><img src="pic/t.jpg" width="1010" height="92" /></td>
-    </tr>
-</table>
+<div class="page-header">
+    <table width="100%">
+        <tr>
+            <td><div class="header-title">汽车美容管理系统</div></td>
+            <td align="right">
 
-<div style="text-align: right;position: relative;right: 50px;top: -30px;">
-    <%
-        String username = (String) session.getAttribute("user_name");
-        if ("admin".equals(username)) {
-    %>
-    <a style="color: #000;text-decoration: underline" href="./gl_info/shop_info.jsp" target="mainFrame"><%=name%></a>
-    <%
-        } else {
-    %>
-    <a style="color: #000;text-decoration: underline" href="shop_info.jsp" target="mainFrame"><%=name%></a>
-    <%
-        }
-    %>
+                <div class="header-username">
+                    <%
+                        String username = (String) session.getAttribute("user_name");
+                        if ("admin".equals(username)) {
+                    %>
+                    《<a href="./gl_info/shop_info.jsp" target="mainFrame"><%=name%></a>》
+                    <%
+                    } else {
+                    %>
+                    《<a href="shop_info.jsp" target="mainFrame"><%=name%></a>》
+                    <%
+                        }
+                    %>
+                </div>
+
+            </td>
+        </tr>
+    </table>
 </div>
 
 </body>

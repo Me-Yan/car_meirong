@@ -14,7 +14,6 @@
 <table class="outer">
     <tr>
         <td width="100%" valign="top">
-            <br><br>
             <%--<table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr>
                     <td width="125" height="30" align="center" bgcolor="#999999">客户名称</td>
@@ -63,7 +62,7 @@
 
         var chartOptions = {
             title: {
-                text: "近30天消费统计"
+                text: "近期消费统计"
             },
             tooltip: {
                 trigger: 'axis'

@@ -2,6 +2,7 @@
          pageEncoding="GB18030" import="java.sql.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <jsp:useBean id="zwlist" class="bao.DB" scope="page"/>
+<jsp:useBean id="encoding" class="bao.Check"></jsp:useBean>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -14,13 +15,13 @@
     <table class="outer">
         <tr>
             <td height="495px;" valign="top">
-                <br><br>
                 <table width="100%" border="0" cellpadding="0" cellspacing="0" >
                     <tr>
                         <td colspan="6">
                             ÇëÊäÈë²úÆ·Ãû³Æ
                             <input name="c_name" class="text-input" type="text" size="16" >
                             <input type="submit" class="btn" name="Submit" value="²éÑ¯" >
+                            <a class="btn" href="m_add.jsp" style="width: 60px;padding: 1px 0 4px;">ÐÂÔö²úÆ·</a>
                         </td>
                     </tr>
 
@@ -51,7 +52,7 @@
                             try
                             {
                                 String sql;
-                                String c_name=request.getParameter("c_name");
+                                String c_name=encoding.toString(request.getParameter("c_name"));
                                 if (c_name!= null && !c_name.equals(""))
                                 {
                                     sql = "Select * from t_chanpin where c_name Like '%"+c_name+"%'";

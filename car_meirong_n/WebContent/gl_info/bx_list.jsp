@@ -9,18 +9,15 @@
     <link href="../style/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<table class="outer" border="0">
-    <tr><td><a class="btn" href="z_add.jsp" style="padding: 5px 10px;">新增员工</a></td></tr>
+<table class="outer">
+    <tr><td><a class="btn" href="bx_add.jsp" style="padding: 5px 10px;">新增保险</a></td></tr>
     <tr>
         <td height="495px" valign="top">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr>
-                    <td height="30" align="center" bgcolor="#999999">账号</td>
-                    <td align="center" bgcolor="#999999">姓名</td>
-                    <td align="center" bgcolor="#999999">职位</td>
-                    <td align="center" bgcolor="#999999">权限</td>
-                    <td align="center" bgcolor="#999999">时间</td>
-                    <td align="center" bgcolor="#999999">操作</td>
+                    <td width="203" height="30" align="center" bgcolor="#999999">保险名称</td>
+                    <td width="500" align="center" bgcolor="#999999">保险内容</td>
+                    <td width="50" align="center" bgcolor="#999999">操作</td>
                 </tr>
                 <%
                     int CountPage1 = 0;
@@ -42,35 +39,40 @@
                         try
                         {
 
-                            String sql = "Select * from yuangong ";
+                            String sql = "Select * from baoxian ";
                             ResultSet rs=zwlist.GetRs(sql);
                             if(!rs.next())
                             {
-                                out.println("暂时没有信息");
-                            }
-                            else{
-                                rs.last();
-                                int i = 0;
-                                CountRow = rs.getRow();
-                                CountPage1 = (CountRow/PageSize1);
-                                if (CountRow%PageSize1>0)
-                                    CountPage1++;
-                                Integer n = (CurrPage1-1)*5+1;
-                                rs.first();
-                                rs.absolute(CurrPage1*PageSize1-PageSize1+1);
-                                while (i<PageSize1 && !rs.isAfterLast())
-                                {
+                %>
+
+                <tr>
+                    <td colspan="3" align="center">
+                        <%
+                            out.println("暂时没有信息");
+                        %>
+                    </td>
+                </tr>
+
+                <%
+
+                }
+                else{
+                    rs.last();
+                    int i = 0;
+                    CountRow = rs.getRow();
+                    CountPage1 = (CountRow/PageSize1);
+                    if (CountRow%PageSize1>0)
+                        CountPage1++;
+                    Integer n = (CurrPage1-1)*5+1;
+                    rs.first();
+                    rs.absolute(CurrPage1*PageSize1-PageSize1+1);
+                    while (i<PageSize1 && !rs.isAfterLast())
+                    {
                 %>
                 <tr>
-                    <td height="25" align="center"><%=rs.getString("username")%></td>
-                    <td align="center"><%=rs.getString("t_name")%></td>
-                    <td align="center"><%=rs.getString("t_zhiwei")%></td>
-                    <td align="center"><%=rs.getString("t_quanxian")%></td>
-                    <td align="center"><%=rs.getString("t_shijian")%></td>
-                    <td align="center" width="125px">
-                        <a class="btn" href="z_up.jsp?id=<%=rs.getString("id")%>">修改</a>
-                        <a class="btn" href="del.jsp?id=<%=rs.getString("id")%>&tt=1">删除</a>
-                    </td>
+                    <td height="25" align="center"><%=rs.getString("type")%></td>
+                    <td align="center"><%=rs.getString("content")%></td>
+                    <td align="center"><a class="btn" href="del.jsp?id=<%=rs.getString("id")%>&tt=12">删除</a></td>
                 </tr>
                 <%
                                     rs.next();
@@ -96,12 +98,11 @@
                     <td width="511" colspan="2"><p>[<%=CurrPage1%>/<%=CountPage1 %>] 每页<%=PageSize1%>条 共<%=CountRow%>条记录
 
                             <% for (int i = 1;i<=CountPage1;i++){%>
-                        <a href="z_gl.jsp?Page=<%=i%>"><font color="#FF0000">[<%=i%>]</font></a>
+                        <a href="bx_list.jsp?Page=<%=i%>"><font color="#FF0000">[<%=i%>]</font></a>
                             <%}%>
                     </td>
                 </tr>
-            </table>
-        </td>
+            </table></td>
     </tr>
 </table>
 </body>

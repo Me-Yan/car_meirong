@@ -6,21 +6,19 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Insert title here</title>
-    <link href="../style/style.css" rel="stylesheet" type="text/css">
+    <link href="./style/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<table class="outer" border="0">
-    <tr><td><a class="btn" href="z_add.jsp" style="padding: 5px 10px;">ÐÂÔöÔ±¹¤</a></td></tr>
+<table class="outer">
     <tr>
         <td height="495px" valign="top">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr>
-                    <td height="30" align="center" bgcolor="#999999">ÕËºÅ</td>
-                    <td align="center" bgcolor="#999999">ÐÕÃû</td>
-                    <td align="center" bgcolor="#999999">Ö°Î»</td>
-                    <td align="center" bgcolor="#999999">È¨ÏÞ</td>
-                    <td align="center" bgcolor="#999999">Ê±¼ä</td>
-                    <td align="center" bgcolor="#999999">²Ù×÷</td>
+                    <td align="center" bgcolor="#999999">Æû³µÃû³Æ</td>
+                    <td align="center" bgcolor="#999999">±£ÏÕÀàÐÍ</td>
+                    <td align="center" bgcolor="#999999">¼Û¸ñ</td>
+                    <td align="center" bgcolor="#999999">ÓÐÎÞÓÅ»Ý</td>
+                    <td align="center" bgcolor="#999999">ÄêÏÞ</td>
                 </tr>
                 <%
                     int CountPage1 = 0;
@@ -42,11 +40,22 @@
                         try
                         {
 
-                            String sql = "Select * from yuangong ";
+                            String sql = "Select * from car ";
                             ResultSet rs=zwlist.GetRs(sql);
                             if(!rs.next())
                             {
-                                out.println("ÔÝÊ±Ã»ÓÐÐÅÏ¢");
+                %>
+
+                <tr>
+                    <td colspan="5" align="center">
+                        <%
+                            out.println("ÔÝÊ±Ã»ÓÐÐÅÏ¢");
+                        %>
+                    </td>
+                </tr>
+
+                <%
+
                             }
                             else{
                                 rs.last();
@@ -62,15 +71,11 @@
                                 {
                 %>
                 <tr>
-                    <td height="25" align="center"><%=rs.getString("username")%></td>
-                    <td align="center"><%=rs.getString("t_name")%></td>
-                    <td align="center"><%=rs.getString("t_zhiwei")%></td>
-                    <td align="center"><%=rs.getString("t_quanxian")%></td>
-                    <td align="center"><%=rs.getString("t_shijian")%></td>
-                    <td align="center" width="125px">
-                        <a class="btn" href="z_up.jsp?id=<%=rs.getString("id")%>">ÐÞ¸Ä</a>
-                        <a class="btn" href="del.jsp?id=<%=rs.getString("id")%>&tt=1">É¾³ý</a>
-                    </td>
+                    <td height="25" align="center"><%=rs.getString("name")%></td>
+                    <td align="center"><%=rs.getString("bname")%></td>
+                    <td align="center"><%=rs.getString("price")%></td>
+                    <td align="center"><%=rs.getString("isoff")%></td>
+                    <td align="center"><%=rs.getString("year")%></td>
                 </tr>
                 <%
                                     rs.next();
@@ -96,12 +101,11 @@
                     <td width="511" colspan="2"><p>[<%=CurrPage1%>/<%=CountPage1 %>] Ã¿Ò³<%=PageSize1%>Ìõ ¹²<%=CountRow%>Ìõ¼ÇÂ¼
 
                             <% for (int i = 1;i<=CountPage1;i++){%>
-                        <a href="z_gl.jsp?Page=<%=i%>"><font color="#FF0000">[<%=i%>]</font></a>
+                        <a href="car_list.jsp?Page=<%=i%>"><font color="#FF0000">[<%=i%>]</font></a>
                             <%}%>
                     </td>
                 </tr>
-            </table>
-        </td>
+            </table></td>
     </tr>
 </table>
 </body>

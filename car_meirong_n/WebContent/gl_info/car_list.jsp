@@ -8,39 +8,19 @@
     <title>Insert title here</title>
     <link href="../style/style.css" rel="stylesheet" type="text/css">
 </head>
-<script language="javascript">
-    function check(){
-        //判断名称是否为空
-        if(form1.car_name.value==""){
-            alert("请输入汽车名称！");form1.car_name.focus();return false;
-        }
-    }
-</script>
 <body>
 <table class="outer">
+    <tr><td><a class="btn" href="car_add.jsp" style="padding: 5px 10px;">新增汽车</a></td></tr>
     <tr>
-        <td width="100%" valign="top">
-            <form id="form1" name="form1" method="post" action="car_process.jsp"  onSubmit="return check()">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                    <tr>
-                        <td height="30" colspan="2" align="center" valign="top">汽车添加</td>
-                    </tr>
-                    <tr>
-                        <td class="text-name">汽车名称：</td>
-                        <td width="364"><input type="text" class="text-input" name="car_name" id="car_name"/></td>
-                    </tr>
-                    <tr>
-                        <td class="text-name">&nbsp;</td>
-                        <td><input type="submit" class="btn" name="Submit" value="提交" />
-                            &nbsp; <input type="reset" class="btn" name="Submit2" value="重置" /></td>
-                    </tr>
-                </table>
-            </form>
-            <table width="774" border="0" cellpadding="0" cellspacing="0">
+        <td height="495px" valign="top">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr>
-                    <td width="203" height="30" align="center" bgcolor="#999999">编号</td>
-                    <td width="500" align="center" bgcolor="#999999">汽车名称</td>
-                    <td width="50" align="center" bgcolor="#999999">操作</td>
+                    <td align="center" bgcolor="#999999">汽车名称</td>
+                    <td align="center" bgcolor="#999999">保险类型</td>
+                    <td align="center" bgcolor="#999999">价格</td>
+                    <td align="center" bgcolor="#999999">有无优惠</td>
+                    <td align="center" bgcolor="#999999">年限</td>
+                    <td width="150" align="center" bgcolor="#999999">操作</td>
                 </tr>
                 <%
                     int CountPage1 = 0;
@@ -69,7 +49,7 @@
                 %>
 
                 <tr>
-                    <td colspan="3" align="center">
+                    <td colspan="6" align="center">
                         <%
                             out.println("暂时没有信息");
                         %>
@@ -93,9 +73,15 @@
                                 {
                 %>
                 <tr>
-                    <td height="25" align="center"><%=rs.getString("id")%></td>
-                    <td align="center"><%=rs.getString("name")%></td>
-                    <td align="center"><a class="btn" href="del.jsp?id=<%=rs.getString("id")%>&tt=11">删除</a></td>
+                    <td height="25" align="center"><%=rs.getString("name")%></td>
+                    <td align="center"><%=rs.getString("bname")%></td>
+                    <td align="center"><%=rs.getString("price")%></td>
+                    <td align="center"><%=rs.getString("isoff")%></td>
+                    <td align="center"><%=rs.getString("year")%></td>
+                    <td align="center">
+                        <a class="btn" href="del.jsp?id=<%=rs.getString("id")%>&tt=13">删除</a>
+                        <a class="btn" href="car_update.jsp?id=<%=rs.getString("id")%>">修改</a>
+                    </td>
                 </tr>
                 <%
                                     rs.next();
@@ -121,7 +107,7 @@
                     <td width="511" colspan="2"><p>[<%=CurrPage1%>/<%=CountPage1 %>] 每页<%=PageSize1%>条 共<%=CountRow%>条记录
 
                             <% for (int i = 1;i<=CountPage1;i++){%>
-                        <a href="gg_gl.jsp?Page=<%=i%>"><font color="#FF0000">[<%=i%>]</font></a>
+                        <a href="car_list.jsp?Page=<%=i%>"><font color="#FF0000">[<%=i%>]</font></a>
                             <%}%>
                     </td>
                 </tr>

@@ -38,7 +38,7 @@
 			
 			if(row > 0){
 
-				out.println("<script>alert('账户添加成功！');window.location.href='z_add.jsp';</script>");
+				out.println("<script>alert('账户添加成功！');window.location.href='z_gl.jsp';</script>");
 			}
 		 	
 			con.close(); }

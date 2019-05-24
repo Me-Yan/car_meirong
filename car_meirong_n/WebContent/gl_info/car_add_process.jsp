@@ -12,11 +12,15 @@
 <body>
 <%
     try {
-        String car_name=encoding.toString(request.getParameter("car_name"));
+        String name=encoding.toString(request.getParameter("name"));
+        String bname=encoding.toString(request.getParameter("bname"));
+        String price=encoding.toString(request.getParameter("price"));
+        String isoff=encoding.toString(request.getParameter("isoff"));
+        String year=encoding.toString(request.getParameter("year"));
 
         Connection con=zwcl.getCon();
         // 添加信息的SQL语句
-        String sql = "insert into car(name) values('"+car_name+"')";
+        String sql = "insert into car(name,bname,price,isoff,year) values('"+name+"','"+bname+"','"+price+"','"+isoff+"','"+year+"')";
         int row = zwcl.GetCount(sql);
 
         if(row > 0){

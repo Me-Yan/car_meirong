@@ -12,7 +12,6 @@
 <table class="outer">
     <tr>
         <td width="100%" valign="top">
-            <br><br>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr>
                     <td width="192" height="30" align="center" bgcolor="#999999">¿Í»§Ãû³Æ</td>

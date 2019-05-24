@@ -10,9 +10,9 @@
 </head>
 <body>
 <table class="outer">
+    <tr><td><a class="btn" href="k_add.jsp" style="padding: 5px 10px;">新增客户</a></td></tr>
     <tr>
         <td height="495px;" valign="top">
-            <br><br>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr>
                     <td width="134" height="30" align="center" bgcolor="#999999">客户名称</td>

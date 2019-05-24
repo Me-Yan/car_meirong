@@ -34,7 +34,7 @@
 			
 			if(row > 0){
 
-				out.println("<script>alert('添加成功！');window.location.href='m_add.jsp';</script>");
+				out.println("<script>alert('添加成功！');window.location.href='m_gl.jsp';</script>");
 			}
 			con.close();}
 		} catch (Exception e) {
